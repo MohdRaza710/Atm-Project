@@ -5,82 +5,76 @@ import './index.css'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+
+// Pages
 import Home from './pages/Home.jsx'
-import { AuthLayout, Login } from './components/index.js'
+import Signup from './pages/Signup.jsx'
+import Transactions from './pages/Transactions.jsx'
+import Withdraw from './pages/Withdraw.jsx'
+import Deposit from './pages/Deposit.jsx'
 
+// Components
+import { AuthLayout, Login } from './components'
 
-import AddPost from "./pages/AddPost";
-import Signup from './pages/Signup'
-import EditPost from "./pages/EditPost";
-
-import Post from "./pages/Post";
-
-import AllPosts from "./pages/AllPosts";
-
+// Routes
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-        {
-            path: "/",
-            element: <Home />,
-        },
-        {
-            path: "/login",
-            element: (
-                <AuthLayout authentication={false}>
-                    <Login />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/signup",
-            element: (
-                <AuthLayout authentication={false}>
-                    <Signup />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/all-posts",
-            element: (
-                <AuthLayout authentication>
-                    {" "}
-                    <AllPosts />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/add-post",
-            element: (
-                <AuthLayout authentication>
-                    {" "}
-                    <AddPost />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/edit-post/:slug",
-            element: (
-                <AuthLayout authentication>
-                    {" "}
-                    <EditPost />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/post/:slug",
-            element: <Post />,
-        },
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: (
+          <AuthLayout authentication={false}>
+            <Login />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/signup",
+        element: (
+          <AuthLayout authentication={false}>
+            <Signup />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/transactions",
+        element: (
+          <AuthLayout authentication={true}>
+            <Transactions />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/withdraw",
+        element: (
+          <AuthLayout authentication={true}>
+            <Withdraw />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/deposit",
+        element: (
+          <AuthLayout authentication={true}>
+            <Deposit />
+          </AuthLayout>
+        ),
+      },
     ],
-},
-])
+  },
+]);
 
+// Render App
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
