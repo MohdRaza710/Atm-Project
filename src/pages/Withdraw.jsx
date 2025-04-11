@@ -59,7 +59,7 @@ function Withdraw() {
     <div className="max-w-lg mx-auto p-4 mt-8 bg-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold text-center mb-4">Withdraw Funds</h2>
       <div className="mb-4">
-        <label htmlFor="amount" className="block text-gray-700">Amount</label>
+        <label htmlFor="amount" className="block text-gray-700">Amount (${amount})</label>
         <input
           id="amount"
           type="number"

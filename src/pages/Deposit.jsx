@@ -63,7 +63,7 @@ function Deposit() {
 
       <form onSubmit={handleDeposit} className="space-y-6">
         <div>
-          <label htmlFor="amount" className="block text-gray-700 text-lg mb-2">Deposit Amount ($)</label>
+          <label htmlFor="amount" className="block text-gray-700 text-lg mb-2">Deposit Amount (${amount})</label>
           <input
             id="amount"
             type="number"
