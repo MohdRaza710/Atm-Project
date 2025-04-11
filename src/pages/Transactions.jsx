@@ -58,7 +58,7 @@ function Transactions() {
                       {new Date(tx.timestamp).toLocaleString()}
                     </td>
                     <td className='p-3 border-b'>{tx.type}</td>
-                    <td className='p-3 border-b'>₹{tx.amount}</td>
+                    <td className='p-3 border-b'>${tx.amount}</td>
                     <td className='p-3 border-b'>{tx.status}</td>
                   </tr>
                 ))}
