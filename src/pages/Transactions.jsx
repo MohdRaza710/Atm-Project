@@ -47,7 +47,7 @@ function Transactions() {
                 <tr>
                   <th className='p-3 border-b'>Date</th>
                   <th className='p-3 border-b'>Type</th>
-                  <th className='p-3 border-b'>Amount (₹)</th>
+                  <th className='p-3 border-b'>Amount ($)</th>
                   <th className='p-3 border-b'>Status</th>
                 </tr>
               </thead>
