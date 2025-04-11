@@ -25,7 +25,7 @@ function Withdraw() {
         return;
       }
 
-      const userId = "USER_ID"; // Replace with actual user ID logic
+      const userid = "USER_iD"; // Replace with actual user ID logic
       const timestamp = new Date().toISOString();
       const status = 'success'; // You can set status based on your business logic
       const type = 'widthraw'; // Type is set to "widthraw" for this transaction
@@ -35,7 +35,7 @@ function Withdraw() {
         amount: amountAsInt, // Send the amount as an integer
         type: 'widthraw', // Type is set to "withdraw"
         status: 'success',
-        userId,
+        userid,
         timestamp: new Date().toISOString(),
       });
 

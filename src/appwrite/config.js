@@ -17,7 +17,7 @@ export class AppwriteService {
 
     // Create a transaction (Deposit/Withdraw)
     // In atmService.js (or wherever the withdrawal logic is)
-    async createTransaction({ amount, type, status, userId, timestamp }) {
+    async createTransaction({ amount, type, status, userid, timestamp }) {
       try {
         const transaction = await this.databases.createDocument(
           conf.appwriteDatabaseId,      // Database ID
@@ -27,7 +27,7 @@ export class AppwriteService {
             amount,
             type,
             status,
-            userId,
+            userid,
             timestamp,
           }
         );
@@ -59,12 +59,12 @@ export class AppwriteService {
         }
     }
 
-    async updateBalance(userId, newBalance) {
+    async updateBalance(userid, newBalance) {
       try {
         return await this.databases.updateDocument(
           conf.appwriteDatabaseId,
           conf.appwriteCollectionId, // Replace with your actual collection ID
-          userId, // Assuming userId is the document ID
+          userid, // Assuming userId is the document ID
           {
             balance: newBalance, // Update balance
           }

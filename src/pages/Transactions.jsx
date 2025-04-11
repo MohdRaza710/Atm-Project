@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import atmService from '../appwrite/config'
+import AppwriteService from '../appwrite/config'
 import { Container } from '../components'
 import { Query } from 'appwrite'
 
@@ -13,8 +13,8 @@ function Transactions() {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const res = await atmService.getTransactions([
-          Query.equal('userId', auth.$id),
+        const res = await AppwriteService.getTransactions([
+          Query.equal('userid', auth?.$id),
           Query.orderDesc('$createdAt'),
         ])
 
@@ -29,7 +29,7 @@ function Transactions() {
     }
 
     fetchTransactions()
-  }, [auth.$id])
+  }, [auth?.$id])
 
   return (
     <Container>

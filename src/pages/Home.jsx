@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import atmService from '../appwrite/config'
+import AppwriteService from '../appwrite/config'
 import { useSelector } from 'react-redux'
 import { Container } from '../components'
 import { Query } from 'appwrite'
-import Transactions from './Transactions'
 
 function Home() {
   const [balance, setBalance] = useState(0)
@@ -15,8 +14,8 @@ function Home() {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const transactions = await atmService.getTransactions([
-          Query.equal("userId", auth.$id),
+        const transactions = await AppwriteService.getTransactions([
+          Query.equal("userid", auth?.$id),
         ])
 
         const total = transactions?.documents?.reduce((acc, tx) => {
@@ -66,7 +65,7 @@ function Home() {
         <h1 className='text-3xl font-bold text-center mb-8'>Welcome to Your ATM</h1>
         
         <div className='bg-green-100 text-green-800 font-semibold rounded-lg text-center p-4 mb-8 shadow'>
-          {loading ? 'Loading balance...' : `Current Balance: ₹${balance.toFixed(2)}`}
+          {loading ? 'Loading balance...' : `Current Balance: $${balance.toFixed(2)}`}
         </div>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
